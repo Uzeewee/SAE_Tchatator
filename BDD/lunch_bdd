@@ -1,0 +1,4 @@
+psql -U postgres -f cr_bdd_sprint1_postgresql.sql postgres
+psql -U postgres -f pop_bdd_sprint1_postgresql.sql postgres
+
+gcc -o serveur serveur.c -I/usr/include/postgresql -L/usr/lib/postgresql -lpq
