@@ -12,7 +12,6 @@ int main() {
     struct sockaddr_in serv_addr;
     char buffer[BUFFER_SIZE] = {0};
     char message[BUFFER_SIZE];
-    char client_name[BUFFER_SIZE] = "client";
 
     if ((sock = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
         perror("Erreur de création du socket");
@@ -35,7 +34,7 @@ int main() {
     printf("Connexion au serveur réussie !\n");
 
     while (1) {
-        printf("Entrez votre requête %s: ", client_name);
+        printf("Entrez votre requête : ");
         fgets(message, BUFFER_SIZE, stdin);
         message[strcspn(message, "\n")] = 0;
 
@@ -49,12 +48,8 @@ int main() {
         memset(buffer, 0, BUFFER_SIZE);
         read(sock, buffer, BUFFER_SIZE);
 
-        if (strncmp(buffer, "LOGIN OK:", 9) == 0) {
-            strcpy(client_name, buffer + 9); // Extraire le nom du client
-            printf("Connexion réussie ! Bienvenue %s.\n", client_name);
-        } else {
-            printf("Réponse du serveur : %s\n", buffer);
-        }
+    
+        printf("%s\n", buffer);
     }
 
     close(sock);
