@@ -19,6 +19,37 @@ typedef struct {
 
 SessionToken active_tokens[MAX_TOKENS];
 
+void list_tokens(PGconn *conn, int client_socket) {
+    char query[] = "SELECT idChatTokenSession, idCompte, tokenSession, dateExpiration FROM _chat_tokensession;";
+    PGresult *res = PQexec(conn, query);
+
+    if (PQresultStatus(res) != PGRES_TUPLES_OK) {
+        fprintf(stderr, "Échec de la requête LIST_TOKENS : %s\n", PQerrorMessage(conn));
+        send(client_socket, "Erreur lors de la récupération des tokens.\n", strlen("Erreur lors de la récupération des tokens.\n"), 0);
+        PQclear(res);
+        return;
+    }
+
+    char buffer[BUFFER_SIZE];
+    int rows = PQntuples(res);
+
+    if (rows == 0) {
+        snprintf(buffer, BUFFER_SIZE, "Aucun token actif dans la base de données.\n");
+        send(client_socket, buffer, strlen(buffer), 0);
+    } else {
+        snprintf(buffer, BUFFER_SIZE, "Liste des tokens actifs :\n");
+        send(client_socket, buffer, strlen(buffer), 0);
+
+        for (int i = 0; i < rows; i++) {
+            snprintf(buffer, BUFFER_SIZE, "ID: %s | ID Compte: %s | Token: %s | Expiration: %s\n",
+                     PQgetvalue(res, i, 0), PQgetvalue(res, i, 1),
+                     PQgetvalue(res, i, 2), PQgetvalue(res, i, 3));
+            send(client_socket, buffer, strlen(buffer), 0);
+        }
+    }
+
+    PQclear(res);
+}
 
 
 void print_config() {
@@ -41,12 +72,26 @@ void generate_token(char *token, size_t length) {
     token[length - 1] = '\0';
 }
 
-void add_token(const char *client_name, char *token) {
+void add_token(PGconn *conn,const char *client_name, char *token, int client_id) {
     for (int i = 0; i < MAX_TOKENS; i++) {
         if (active_tokens[i].token[0] == '\0') { // Si la place est libre
             strncpy(active_tokens[i].client_name, client_name, MAX_NAME_LENGTH);
             strcpy(active_tokens[i].token, token);
             active_tokens[i].expiration_time = time(NULL) + TOKEN_EXPIRATION_TIME;
+            // Insérer dans la base de données
+            char query[512];
+            snprintf(query, sizeof(query),
+                     "INSERT INTO public._chat_tokensession (idCompte, tokenSession, dateExpiration) "
+                     "VALUES (%d, '%s', NOW() + INTERVAL '1 hour');",
+                     client_id, token);
+
+            PGresult *res = PQexec(conn, query);
+            if (PQresultStatus(res) != PGRES_COMMAND_OK) {
+                fprintf(stderr, "Erreur lors de l'insertion du token dans la base de données : %s\n", PQerrorMessage(conn));
+            } else {
+                printf("Token inséré dans la base de données pour l'utilisateur %s.\n", client_name);
+            }
+            PQclear(res);
             break;
         }
     }
@@ -88,9 +133,9 @@ void write_log(const char *client_name, const char *client_ip, const char *messa
     fclose(log_file);
 }
 
-int verify_api_key(PGconn *conn, const char *api_key, char *client_name, size_t name_size) {
+int verify_api_key(PGconn *conn, const char *api_key, char *client_name, int *client_id ,size_t name_size) {
     char query[512];
-    snprintf(query, sizeof(query), "SELECT prenomCompte FROM _compte WHERE chat_cleApi = '%s';", api_key);
+    snprintf(query, sizeof(query), "SELECT idcompte, prenomCompte FROM _compte WHERE chat_cleApi = '%s';", api_key);
 
     PGresult *res = PQexec(conn, query);
 
@@ -102,7 +147,8 @@ int verify_api_key(PGconn *conn, const char *api_key, char *client_name, size_t 
 
     int rows = PQntuples(res);
     if (rows == 1) {
-        strncpy(client_name, PQgetvalue(res, 0, 0), name_size - 1); // Récupérer le nom de l'utilisateur
+        strncpy(client_name, PQgetvalue(res, 0, 1), name_size - 1); // Récupérer le nom de l'utilisateur
+        *client_id = atoi(PQgetvalue(res, 0, 0));
         client_name[name_size - 1] = '\0'; // Assurer la terminaison
         PQclear(res);
         return 1; // Clé API valide
@@ -115,6 +161,7 @@ int verify_api_key(PGconn *conn, const char *api_key, char *client_name, size_t 
 void handle_client(int client_socket, PGconn *conn) {
     char buffer[BUFFER_SIZE];
     char client_name[MAX_NAME_LENGTH] = {};
+    int client_id = -1 ;
     char token[TOKEN_LENGTH] = {};
     int is_logged_in = 0;
 
@@ -149,10 +196,10 @@ void handle_client(int client_socket, PGconn *conn) {
 
         if (!is_logged_in && strncmp(buffer, "LOGIN:", 6) == 0) {
             char *api_key = buffer + 6;
-            if (verify_api_key(conn, api_key, client_name, MAX_NAME_LENGTH)) {
+            if (verify_api_key(conn, api_key, client_name, &client_id ,MAX_NAME_LENGTH)) {
                 is_logged_in = 1;
                 generate_token(token, TOKEN_LENGTH);
-                add_token(client_name, token); // Ajouter le token
+                add_token(conn,client_name, token,client_id); // Ajouter le token
                 snprintf(buffer, sizeof(buffer), "Connecté en tant que :%s \nVotre TOKEN:%s\n",client_name,token);
                 send(client_socket, buffer, strlen(buffer), 0);
                 snprintf(log_message, sizeof(log_message), "Utilisateur connecté : %s, TOKEN : %s", client_name, token);
@@ -161,6 +208,9 @@ void handle_client(int client_socket, PGconn *conn) {
                 send(client_socket, "LOGIN FAILED\n", strlen("LOGIN FAILED\n"), 0);
                 write_log(NULL, client_ip, "Échec de la connexion : clé API invalide");
             }
+        }else if (is_logged_in && strncmp(buffer, "MSG:", 4) == 0) {
+            char *content = buffer + 4;
+            
         } else if (strcmp(buffer, "CONFIG") == 0) {
             snprintf(buffer, BUFFER_SIZE, "Port: %d\nDurée du ban: %d secondes\nMessages max: %d\nTaille max des messages: %d octets\nTaille max des prenoms: %d octets\nTaille des tokens: %d octets\nDurée d'expirations: %d secondes\nNombre max de Token : %d \n",
                      PORT, ban_duration, max_messages, max_message_size,MAX_NAME_LENGTH,TOKEN_LENGTH,TOKEN_EXPIRATION_TIME,MAX_TOKENS);
@@ -173,13 +223,17 @@ void handle_client(int client_socket, PGconn *conn) {
                 snprintf(buffer, BUFFER_SIZE, "Non connecté\n");
             }
             send(client_socket, buffer, strlen(buffer), 0);
-        } else if (strcmp(buffer, "LOGOUT") == 0) {
+        }else if (strcmp(buffer, "LIST_TOKENS") == 0) {
+            list_tokens(conn, client_socket);
+            write_log(client_name[0] ? client_name : NULL, client_ip, "Commande LIST_TOKENS sucess");
+        }else if (strcmp(buffer, "LOGOUT") == 0) {
             if (!is_logged_in) {
                 snprintf(buffer, BUFFER_SIZE, "Aucun compte connecté.\n");
             } else {
                 snprintf(buffer, BUFFER_SIZE, "Déconnexion réussie.\n");
                 write_log(client_name[0] ? client_name : NULL, client_ip, "Commande LOGOUT sucess");
                 memset(client_name, 0, MAX_NAME_LENGTH);
+                client_id = -1;
                 is_logged_in = 0;
             }
             send(client_socket, buffer, strlen(buffer), 0);

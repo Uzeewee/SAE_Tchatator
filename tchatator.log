@@ -13,3 +13,20 @@
 [2025-01-11 01:28:07] [] [127.0.0.1] Commande EXIT reçue
 [2025-01-11 01:28:16] [] [localhost] Démarrage du service
 [2025-01-11 01:28:16] [] [localhost] Connexion à la base de données réussie
+[2025-01-12 19:48:04] [] [localhost] Démarrage du service
+[2025-01-12 19:48:05] [] [localhost] Connexion à la base de données réussie
+[2025-01-12 19:48:22] [] [127.0.0.1] Nouvelle connexion établie
+[2025-01-12 19:48:32] [] [127.0.0.1] Requête reçue : LIST_TOKENS
+[2025-01-12 19:48:46] [] [127.0.0.1] Requête reçue : LOGIN:rwd-b894e4c2-6eee-4b9c-b01e-456b8b45e28b
+[2025-01-12 19:48:46] [John] [127.0.0.1] Utilisateur connecté : John, TOKEN : PKdhtXMmr18n2L9K88eMlGn7CcctT9RwKSB1FebW397VI5uG1yhc3uavuaOb9vy
+[2025-01-12 19:49:00] [John] [127.0.0.1] Requête reçue : LIST_TOKENS
+[2025-01-12 19:49:10] [John] [127.0.0.1] Requête reçue : LOGOUT
+[2025-01-12 19:49:10] [John] [127.0.0.1] Commande LOGOUT sucess
+[2025-01-12 19:49:21] [] [127.0.0.1] Requête reçue : LIST_TOKENS
+[2025-01-12 19:49:47] [] [127.0.0.1] Requête reçue : LOGIN:rw-89af9b99-ad08-4a93-b8c9-d8398c18c016
+[2025-01-12 19:49:47] [Lou] [127.0.0.1] Utilisateur connecté : Lou, TOKEN : JcXyHZzsRwpC5iUzahEcaYatja7kaqGHss6YhteYQrpJA76AcBAanBtuBoDzF97
+[2025-01-12 19:49:56] [Lou] [127.0.0.1] Requête reçue : TOKEN
+[2025-01-12 19:49:56] [Lou] [127.0.0.1] Token validé avec succès
+[2025-01-12 19:50:01] [Lou] [127.0.0.1] Requête reçue : LOGOUT
+[2025-01-12 19:50:01] [Lou] [127.0.0.1] Commande LOGOUT sucess
+[2025-01-12 19:50:07] [] [127.0.0.1] Requête reçue : LIST_TOKENS

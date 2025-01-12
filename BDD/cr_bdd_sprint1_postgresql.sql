@@ -55,9 +55,12 @@ CREATE TABLE public._chat_message (
     timestamp_envoie TIMESTAMP NOT NULL DEFAULT NOW(),
     derniere_modif TIMESTAMP NOT NULL DEFAULT NOW(),
     emetteur VARCHAR(255) NOT NULL,
+    id_emetteur INT NOT NULL,
     destinataire VARCHAR(255) NOT NULL,
-    direction VARCHAR(10) NOT NULL CHECK (direction IN ('reçu', 'émis')), -- Sens : reçu ou émis
+    id_destinataire INT NOT NULL,
+    direction VARCHAR(10) NOT NULL CHECK (direction IN ('recu', 'emis')), -- Sens : reçu ou émis
     est_supprime BOOLEAN NOT NULL DEFAULT FALSE,
+    est_lu BOOLEAN NOT NULL DEFAULT FALSE,
     content TEXT NOT NULL CHECK (LENGTH(content) <= 1000),
     CONSTRAINT check_max_size CHECK (LENGTH(content) <= 1000) 
 );
@@ -357,9 +360,10 @@ JOIN public._compte c ON m.idCompte = c.idCompte;
 
 -- vue professionnel
 CREATE VIEW public.professionnel AS
-SELECT p.idPro, c.idCompte, c.nomCompte, c.prenomCompte, c.mailCompte, c.numTelCompte, c.hashMdpCompte, c.idImagePdp
+SELECT p.idPro, c.idCompte, c.nomCompte, c.prenomCompte, c.mailCompte, c.numTelCompte, c.hashMdpCompte, c.idImagePdp, i.pathImage
 FROM public._professionnel p
-JOIN public._compte c ON p.idCompte = c.idCompte;
+JOIN public._compte c ON p.idCompte = c.idCompte
+JOIN public._image i ON c.idImagePdp = i.idImage;
 
 -- vue avis avec leur réponse
 CREATE VIEW public.avisReponse AS
