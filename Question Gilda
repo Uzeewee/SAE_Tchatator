@@ -1,2 +1,15 @@
-Je dois fournir un client automatique ou dans la docu je donne des infos pour pouvoir tester ?
-Duree de vie du token ?
+--help nescessite une connexion mais est un parametre ?? ne serait ce juste pas un help dans le serveur ?
+interet de --help , qu'affiche t'il --help et --verbose 
+spam par 1 user ?
+est ce que config.h suffit comme fichier config ? changer le config en txt
+
+
+MANQUANT:
+-help (--help)
+-verbose (--verbose)
+-spam
+-enlever automatiquement bloque apres 24h
+-file d'attente connexion
+-modif et suppr d'un message avec durée
+-changer le fichier config
+-finir client

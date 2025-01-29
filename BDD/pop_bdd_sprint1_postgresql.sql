@@ -49,6 +49,7 @@ INSERT INTO _adresse (numRue, supplementAdresse, adresse, codePostal, ville, dep
 
 -- 3. Insérer des données dans `_compte`
 INSERT INTO _compte (nomCompte, prenomCompte, mailCompte, numTelCompte, idImagePdp, hashMdpCompte, idAdresse, dateCreationCompte, dateDerniereConnexionCompte, chat_cleApi) VALUES 
+('Admin', 'Admin', 'admin.smith@example.com', '0123456789', 3, '$2y$10$RkM09lrLhpt74shzr/w0Euihc4LraI0K2fSg3WNbzoDsbg7kFKsC6', 12, '2023-01-15', '2025-01-15', 'rwda-b894e4c2-6eee-4b9c-b01e-456b8b45e28b'),
 ('Smith', 'John', 'john.smith@example.com', '0123456789', 3, '$2y$10$RkM09lrLhpt74shzr/w0Euihc4LraI0K2fSg3WNbzoDsbg7kFKsC6', 12, '2023-01-15', '2025-01-15', 'rwd-b894e4c2-6eee-4b9c-b01e-456b8b45e28b'),
 ('Le Verge', 'Lou', 'lou.leverge@example.com', '0123456789', 6, '$2y$10$RkM09lrLhpt74shzr/w0Euihc4LraI0K2fSg3WNbzoDsbg7kFKsC6', 13, '2023-01-15', '2025-01-15', 'rw-89af9b99-ad08-4a93-b8c9-d8398c18c016'),
 ('Denis', 'Liam', 'liamdenis35@gmail.com', '0987654321', 7, '$2y$10$RkM09lrLhpt74shzr/w0Euihc4LraI0K2fSg3WNbzoDsbg7kFKsC6', 14, '2023-02-20', '2025-02-20', 'rw-6488bd30-b1fa-4dc6-be1c-b4bc16d261e8'),
@@ -99,7 +100,7 @@ INSERT INTO _avis (idOffre, noteAvis, commentaireAvis, idMembre, dateAvis, dateV
 (1, 5, 'Excellente offre!', 1, '2023-05-15', '2023-05-10', FALSE, TRUE, 0),
 (2, 3, 'La piste pourrait être mieux indiquée', 4, '2023-06-15', '2023-06-10', FALSE, FALSE, 0),
 (2, 4, 'Super balade en famille !', 2, '2023-06-15', '2023-06-10', FALSE, FALSE, 0),
-(3, 4, 'Bonne offre! J''y retournerais sans problème !', 4, '2023-05-15', '2023-05-10', FALSE, FALSE, 0),
+(3, 4, 'Bonne offre! J''y retournerais sans problème !', 4, '2023-05-15', '2023-05-10', FALSE, FALSE, 1),
 (3, 3, 'Les repas sont peu cher mais le choix laisse à désirer.', 3, '2023-04-23', '2023-04-23', FALSE, FALSE, 0),
 (3, 2, 'Pas encore ouvert :''(', 2, '1955-11-11', '1955-11-11', FALSE, FALSE, 0),
 (3, 4, 'Personnel professionnel et sympathique !', 5, '2022-09-12', '2022-09-12', FALSE, FALSE, 0),
@@ -222,3 +223,6 @@ INSERT INTO _theme (idOffre, idTag) VALUES
 INSERT INTO _constPrix (dateTarif, prixSTDht, prixSTDttc, prixPREMht, prixPREMttc, prixALaUneht, prixALaUnettc, prixEnReliefht, prixEnReliefttc) VALUES 
 ('2024-11-25', 1.67, 2.0, 3.34, 4.0, 16.68, 20.0, 8.34, 10.0);
 
+INSERT INTO _facture (idproprive, idconstprix, datefacture, montantht, montantttc, nbjoursmisehorsligne) VALUES 
+(1, 1, '2024-12-01', 2000, 2400, 0),
+(1, 1, '2025-01-01-', 1000, 1200, 0);

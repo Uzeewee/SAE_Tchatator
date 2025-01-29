@@ -37,6 +37,7 @@ CREATE TABLE public._compte (
     dateCreationCompte DATE DEFAULT NOW(),
     dateDerniereConnexionCompte DATE NOT NULL,
     chat_cleApi TEXT,
+    chat_cledevoile BOOLEAN DEFAULT FALSE,
     FOREIGN KEY (idImagePdp) REFERENCES public._image(idImage),
     FOREIGN KEY (idAdresse) REFERENCES public._adresse(idAdresse)
 );
@@ -50,6 +51,23 @@ CREATE TABLE public._chat_tokensession (
     FOREIGN KEY (idCompte) REFERENCES public._compte(idCompte)
 );
 
+CREATE TABLE public._chat_bloque (
+    id SERIAL PRIMARY KEY,
+    client_id INT NOT NULL, -- ID du client à bloquer
+    blocked_by INT NOT NULL, -- ID de celui qui bloque (professionnel)
+    is_admin INT NOT NULL, -- Indique si le blocage est initié par un administrateur
+    block_duration INTERVAL NOT NULL DEFAULT INTERVAL '24 hours', -- Durée du blocage
+    blocked_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE public._chat_ban (
+    id SERIAL PRIMARY KEY,
+    client_id INT NOT NULL, -- ID du client à ban
+    blocked_by INT NOT NULL, -- ID de l'admin qui est ban (admin)
+    ban_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+
 CREATE TABLE public._chat_message (
     idmessage SERIAL PRIMARY KEY,
     timestamp_envoie TIMESTAMP NOT NULL DEFAULT NOW(),
@@ -60,7 +78,6 @@ CREATE TABLE public._chat_message (
     id_destinataire INT NOT NULL,
     direction VARCHAR(10) NOT NULL CHECK (direction IN ('recu', 'emis')), -- Sens : reçu ou émis
     est_supprime BOOLEAN NOT NULL DEFAULT FALSE,
-    est_lu BOOLEAN NOT NULL DEFAULT FALSE,
     content TEXT NOT NULL CHECK (LENGTH(content) <= 1000),
     CONSTRAINT check_max_size CHECK (LENGTH(content) <= 1000) 
 );
