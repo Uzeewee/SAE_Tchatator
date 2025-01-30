@@ -907,3 +907,89 @@
 [2025-01-30 10:13:32] [] [127.0.0.1] Nouvelle connexion établie
 [2025-01-30 10:13:39] [] [127.0.0.1] Requête reçue : LOGIN:rwda-b894e4c2-6eee-4b9c-b01e-456b8b45e28b
 [2025-01-30 10:13:39] [Admin] [127.0.0.1] Utilisateur connecté : Admin Admin, TOKEN : PKdhtXMmr18n2L9K88eMlGn7CcctT9RwKSB1FebW397VI5uG1yhc3uavuaOb9vy
+[2025-01-30 12:01:56] [] [localhost] Démarrage du service
+[2025-01-30 12:01:56] [] [localhost] Connexion à la base de données réussie
+[2025-01-30 12:02:11] [] [127.0.0.1] Nouvelle connexion établie
+[2025-01-30 12:02:23] [] [127.0.0.1] Requête reçue : Requete 1 voir : TEST
+[2025-01-30 12:02:23] [] [127.0.0.1] Commande inconnue : Requete 1 voir : TEST
+[2025-01-30 12:02:27] [] [127.0.0.1] Client déconnecté
+[2025-01-30 12:03:21] [] [127.0.0.1] Nouvelle connexion établie
+[2025-01-30 12:03:21] [] [127.0.0.1] Requête reçue : TEST_REQUEST
+[2025-01-30 12:03:21] [] [127.0.0.1] Commande inconnue : TEST_REQUEST
+[2025-01-30 12:03:23] [] [127.0.0.1] Requête reçue : TEST_REQUEST
+[2025-01-30 12:03:23] [] [127.0.0.1] Commande inconnue : TEST_REQUEST
+[2025-01-30 12:03:25] [] [127.0.0.1] Requête reçue : TEST_REQUEST
+[2025-01-30 12:03:25] [] [127.0.0.1] Commande inconnue : TEST_REQUEST
+[2025-01-30 12:03:27] [] [127.0.0.1] Requête reçue : TEST_REQUEST
+[2025-01-30 12:03:27] [] [127.0.0.1] Commande inconnue : TEST_REQUEST
+[2025-01-30 12:03:29] [] [127.0.0.1] Requête reçue : TEST_REQUEST
+[2025-01-30 12:03:29] [] [127.0.0.1] Commande inconnue : TEST_REQUEST
+[2025-01-30 12:03:31] [] [127.0.0.1] Requête reçue : TEST_REQUEST
+[2025-01-30 12:03:31] [] [127.0.0.1] Commande inconnue : TEST_REQUEST
+[2025-01-30 12:03:33] [] [127.0.0.1] Requête reçue : TEST_REQUEST
+[2025-01-30 12:03:33] [] [127.0.0.1] Commande inconnue : TEST_REQUEST
+[2025-01-30 12:03:35] [] [127.0.0.1] Requête reçue : TEST_REQUEST
+[2025-01-30 12:03:35] [] [127.0.0.1] Commande inconnue : TEST_REQUEST
+[2025-01-30 12:03:37] [] [127.0.0.1] Requête reçue : TEST_REQUEST
+[2025-01-30 12:03:37] [] [127.0.0.1] Commande inconnue : TEST_REQUEST
+[2025-01-30 12:03:39] [] [127.0.0.1] Requête reçue : TEST_REQUEST
+[2025-01-30 12:03:39] [] [127.0.0.1] Commande inconnue : TEST_REQUEST
+[2025-01-30 12:03:41] [] [127.0.0.1] Requête reçue : TEST_REQUEST
+[2025-01-30 12:03:41] [] [127.0.0.1] Commande inconnue : TEST_REQUEST
+[2025-01-30 12:03:43] [] [127.0.0.1] Requête reçue : TEST_REQUEST
+[2025-01-30 12:03:43] [] [127.0.0.1] Commande inconnue : TEST_REQUEST
+[2025-01-30 12:03:47] [] [127.0.0.1] Client déconnecté
+[2025-01-30 12:04:05] [] [127.0.0.1] Nouvelle connexion établie
+[2025-01-30 12:04:05] [] [127.0.0.1] Requête reçue : TEST_REQUEST
+[2025-01-30 12:04:05] [] [127.0.0.1] Commande inconnue : TEST_REQUEST
+[2025-01-30 12:04:07] [] [127.0.0.1] Requête reçue : TEST_REQUEST
+[2025-01-30 12:04:07] [] [127.0.0.1] Commande inconnue : TEST_REQUEST
+[2025-01-30 12:04:09] [] [127.0.0.1] Requête reçue : TEST_REQUEST
+[2025-01-30 12:04:09] [] [127.0.0.1] Commande inconnue : TEST_REQUEST
+[2025-01-30 12:04:11] [] [127.0.0.1] Requête reçue : TEST_REQUEST
+[2025-01-30 12:04:11] [] [127.0.0.1] Commande inconnue : TEST_REQUEST
+[2025-01-30 12:04:13] [] [127.0.0.1] Requête reçue : TEST_REQUEST
+[2025-01-30 12:04:13] [] [127.0.0.1] Commande inconnue : TEST_REQUEST
+[2025-01-30 12:04:14] [] [127.0.0.1] Client déconnecté
+[2025-01-30 12:04:17] [] [127.0.0.1] Nouvelle connexion établie
+[2025-01-30 12:04:17] [] [127.0.0.1] Requête reçue : TEST_REQUEST
+[2025-01-30 12:04:17] [] [127.0.0.1] Commande inconnue : TEST_REQUEST
+[2025-01-30 12:04:18] [] [127.0.0.1] Requête reçue : TEST_REQUEST
+[2025-01-30 12:04:18] [] [127.0.0.1] Commande inconnue : TEST_REQUEST
+[2025-01-30 12:04:19] [] [127.0.0.1] Requête reçue : TEST_REQUEST
+[2025-01-30 12:04:19] [] [127.0.0.1] Commande inconnue : TEST_REQUEST
+[2025-01-30 12:04:20] [] [127.0.0.1] Requête reçue : TEST_REQUEST
+[2025-01-30 12:04:20] [] [127.0.0.1] Commande inconnue : TEST_REQUEST
+[2025-01-30 12:04:21] [] [127.0.0.1] Requête reçue : TEST_REQUEST
+[2025-01-30 12:04:21] [] [127.0.0.1] Commande inconnue : TEST_REQUEST
+[2025-01-30 12:04:22] [] [127.0.0.1] Requête reçue : TEST_REQUEST
+[2025-01-30 12:04:22] [] [127.0.0.1] Commande inconnue : TEST_REQUEST
+[2025-01-30 12:04:23] [] [127.0.0.1] Requête reçue : TEST_REQUEST
+[2025-01-30 12:04:23] [] [127.0.0.1] Commande inconnue : TEST_REQUEST
+[2025-01-30 12:04:24] [] [127.0.0.1] Requête reçue : TEST_REQUEST
+[2025-01-30 12:04:24] [] [127.0.0.1] Commande inconnue : TEST_REQUEST
+[2025-01-30 12:04:25] [] [127.0.0.1] Requête reçue : TEST_REQUEST
+[2025-01-30 12:04:25] [] [127.0.0.1] Commande inconnue : TEST_REQUEST
+[2025-01-30 12:04:26] [] [127.0.0.1] Requête reçue : TEST_REQUEST
+[2025-01-30 12:04:26] [] [127.0.0.1] Commande inconnue : TEST_REQUEST
+[2025-01-30 12:04:27] [] [127.0.0.1] Requête reçue : TEST_REQUEST
+[2025-01-30 12:04:27] [] [127.0.0.1] Commande inconnue : TEST_REQUEST
+[2025-01-30 12:04:28] [] [127.0.0.1] Requête reçue : TEST_REQUEST
+[2025-01-30 12:04:28] [] [127.0.0.1] Commande inconnue : TEST_REQUEST
+[2025-01-30 12:04:31] [] [127.0.0.1] Client déconnecté
+[2025-01-30 12:22:02] [] [localhost] Démarrage du service
+[2025-01-30 12:22:02] [] [localhost] Connexion à la base de données réussie
+[2025-01-30 12:22:11] [] [127.0.0.1] Nouvelle connexion établie
+[2025-01-30 12:22:31] [] [127.0.0.1] Requête reçue : LOGIN:rwd-b894e4c2-6eee-4b9c-b01e-456b8b45e28b
+[2025-01-30 12:22:31] [John] [127.0.0.1] Utilisateur connecté : John Pro, TOKEN : PKdhtXMmr18n2L9K88eMlGn7CcctT9RwKSB1FebW397VI5uG1yhc3uavuaOb9vy
+[2025-01-30 12:22:48] [John] [127.0.0.1] Requête reçue : NEW_MSG:3,test
+[2025-01-30 12:22:48] [John] [127.0.0.1] Requete de MSG bien Envoyé
+[2025-01-30 12:23:36] [John] [127.0.0.1] Requête reçue : MODIF_MSG:2,test2
+[2025-01-30 12:23:36] [John] [127.0.0.1] message modifier
+[2025-01-30 12:23:40] [John] [127.0.0.1] Requête reçue : LOGOUT
+[2025-01-30 12:23:40] [John] [127.0.0.1] Commande LOGOUT sucess
+[2025-01-30 12:23:56] [] [127.0.0.1] Requête reçue : LOGIN:rw-89af9b99-ad08-4a93-b8c9-d8398c18c016
+[2025-01-30 12:23:56] [Lou] [127.0.0.1] Utilisateur connecté : Lou Membre, TOKEN : JcXyHZzsRwpC5iUzahEcaYatja7kaqGHss6YhteYQrpJA76AcBAanBtuBoDzF97
+[2025-01-30 12:23:59] [Lou] [127.0.0.1] Requête reçue : MSG
+[2025-01-30 12:23:59] [Lou] [127.0.0.1] Requete de MSG reussi
+[2025-01-30 12:24:46] [Lou] [127.0.0.1] Client déconnecté

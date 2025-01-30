@@ -385,7 +385,7 @@ void handle_client(int client_socket, PGconn *conn) {
             // Requête pour récupérer les messages destinés à l'utilisateur
             char query_select[512];
             snprintf(query_select, sizeof(query_select),
-                    "SELECT idmessage, content, direction, id_emetteur, emetteur "
+                    "SELECT idmessage, content, direction, id_emetteur, emetteur, EXTRACT(EPOCH FROM derniere_modif), EXTRACT(EPOCH FROM timestamp_envoie) "
                     "FROM _chat_message "
                     "WHERE id_destinataire = %d AND direction = 'emis' AND est_supprime = false "
                     "ORDER BY timestamp_envoie ASC;", client_id);
@@ -398,6 +398,7 @@ void handle_client(int client_socket, PGconn *conn) {
                     send(client_socket, buffer, strlen(buffer), 0);
                 } else {
                     char messages_buffer[10240] = "";
+                    time_t now = time(NULL);
                     for (int i = 0; i < rows; i++) {
                         char ajout[] = {};
                         // Récupérer les informations du message
@@ -406,10 +407,32 @@ void handle_client(int client_socket, PGconn *conn) {
                         char *direction = PQgetvalue(res_select, i, 2);
                         int id_emetteur = atoi(PQgetvalue(res_select, i, 3));
                         char *emetteur = PQgetvalue(res_select, i, 4);
+                        time_t derniere_modif = (time_t) atoi(PQgetvalue(res_select, i, 5));
+                        time_t timestamp_envoie = (time_t) atoi(PQgetvalue(res_select, i, 6));
+
+                        char modif_info[64] = "";
+                        if (derniere_modif > timestamp_envoie) { // Vérifier si le message a été modifié
+                            time_t diff = now - derniere_modif;
+                            
+                            if (diff < 60) {
+                                snprintf(modif_info, sizeof(modif_info), " (modifié il y a quelques secondes)");
+                            } else if (diff < 900) {
+                                snprintf(modif_info, sizeof(modif_info), " (modifié il y a quelques minutes)");
+                            } else if (diff < 3600) {
+                                int quarter_hours = (diff + 450) / 900 * 15; // Arrondi au 1/4 d'heure
+                                snprintf(modif_info, sizeof(modif_info), " (modifié il y a %d min)", quarter_hours);
+                            } else if (diff < 86400) {
+                                int hours = diff / 3600;
+                                snprintf(modif_info, sizeof(modif_info), " (modifié il y a %d heures)", hours);
+                            } else {
+                                int days = diff / 86400;
+                                snprintf(modif_info, sizeof(modif_info), " (modifié il y a %d jours)", days);
+                            }
+                        }
                         
                         char temp[512];
-                        snprintf(temp, sizeof(temp), "Message ID: %d De %s (ID: %d): %s\n",
-                            id_message, emetteur, id_emetteur, contenu);
+                        snprintf(temp, sizeof(temp), "Message ID: %d De %s (ID: %d):%s%s\n",
+                            id_message, emetteur, id_emetteur, contenu,modif_info);
                         strcat(messages_buffer, temp);
 
                         // Construire la requête SQL d'UPDATE
