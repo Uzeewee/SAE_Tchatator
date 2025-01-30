@@ -67,6 +67,7 @@ void afficher_aide() {
     printf("Usage : ./serveur [OPTIONS]\n");
     printf("\nOptions disponibles :\n");
     printf("  --help                Affiche cette aide et quitte.\n");
+    printf("  --verbose             Active les logs détaillés à l'écran.\n");
     printf("\n");
     exit(0);
 }
@@ -79,6 +80,7 @@ void execute_config_generator() {
         exit(1);
     }
 }
+bool verbose_mode = false;  
 
 // Fonction pour gérer les options
 void gerer_options(int argc, char *argv[]) {
@@ -88,14 +90,19 @@ void gerer_options(int argc, char *argv[]) {
     // Définition des options longues
     struct option long_options[] = {
         {"help", no_argument, 0, 'h'},
+        {"verbose", no_argument, 0, 'v'},
         {0, 0, 0, 0}
     };
 
     // Boucle pour traiter les options
-    while ((opt = getopt_long(argc, argv, "h", long_options, &option_index)) != -1) {
+    while ((opt = getopt_long(argc, argv, "hv", long_options, &option_index)) != -1) {
         switch (opt) {
             case 'h': // --help
                 afficher_aide();
+                break;
+
+            case 'v': // --verbose
+                verbose_mode = true;
                 break;
 
             default: // Option inconnue
@@ -217,6 +224,10 @@ void write_log(const char *client_name, const char *client_ip, const char *messa
     // Écrire dans le fichier log
     fprintf(log_file, "[%s] [%s] [%s] %s\n", time_str, client_name, client_ip, message);
     fclose(log_file);
+
+    if (verbose_mode) {
+        printf("[%s] [%s] [%s] %s\n", time_str, client_name, client_ip, message);
+    }
 }
 
 int verify_api_key(PGconn *conn, const char *api_key, char *client_name, int *client_id ,size_t name_size,char *client_type) {

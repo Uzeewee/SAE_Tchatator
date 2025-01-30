@@ -902,3 +902,8 @@
 [2025-01-29 22:14:14] [Admin] [127.0.0.1] Token validé avec succès
 [2025-01-29 22:14:33] [Admin] [127.0.0.1] Requête reçue : EXIT
 [2025-01-29 22:14:33] [Admin] [127.0.0.1] Commande EXIT reçue
+[2025-01-30 10:12:56] [] [localhost] Démarrage du service
+[2025-01-30 10:12:56] [] [localhost] Connexion à la base de données réussie
+[2025-01-30 10:13:32] [] [127.0.0.1] Nouvelle connexion établie
+[2025-01-30 10:13:39] [] [127.0.0.1] Requête reçue : LOGIN:rwda-b894e4c2-6eee-4b9c-b01e-456b8b45e28b
+[2025-01-30 10:13:39] [Admin] [127.0.0.1] Utilisateur connecté : Admin Admin, TOKEN : PKdhtXMmr18n2L9K88eMlGn7CcctT9RwKSB1FebW397VI5uG1yhc3uavuaOb9vy
