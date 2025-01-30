@@ -22,6 +22,47 @@ typedef struct {
 
 SessionToken active_tokens[MAX_TOKENS];
 
+typedef struct {
+    char client_ip[INET_ADDRSTRLEN];
+    int request_count_minute;
+    int request_count_hour;
+    time_t last_request_time_minute;
+    time_t last_request_time_hour;
+} ClientRateLimit;
+
+
+int check_rate_limit(ClientRateLimit *client, const char *client_ip) {
+    time_t current_time = time(NULL);
+
+    // Vérifier la limite par minute
+    if (current_time - client->last_request_time_minute > 60) {
+        // Réinitialiser le compteur si plus d'une minute s'est écoulée
+        client->request_count_minute = 0;
+        client->last_request_time_minute = current_time;
+    }
+
+    // Vérifier la limite par heure
+    if (current_time - client->last_request_time_hour > 3600) {
+        // Réinitialiser le compteur si plus d'une heure s'est écoulée
+        client->request_count_hour = 0;
+        client->last_request_time_hour = current_time;
+    }
+
+    // Vérifier si le client a dépassé les limites
+    if (client->request_count_minute >= MAX_REQUESTS_PER_MINUTE) {
+        return -1; // Limite par minute dépassée
+    }
+    if (client->request_count_hour >= MAX_REQUESTS_PER_HOUR) {
+        return -2; // Limite par heure dépassée
+    }
+
+    // Incrémenter les compteurs
+    client->request_count_minute++;
+    client->request_count_hour++;
+
+    return 0; // Tout est OK
+}
+
 void afficher_aide() {
     printf("Usage : ./serveur [OPTIONS]\n");
     printf("\nOptions disponibles :\n");
@@ -253,6 +294,10 @@ void handle_client(int client_socket, PGconn *conn) {
     char client_ip[INET_ADDRSTRLEN];
     inet_ntop(AF_INET, &addr.sin_addr, client_ip, INET_ADDRSTRLEN);
 
+    // Initialiser le rate limiting pour ce client
+    ClientRateLimit client_rate_limit = {0};
+    strncpy(client_rate_limit.client_ip, client_ip, INET_ADDRSTRLEN);
+
     // Log de la connexion
     write_log(NULL, client_ip, "Nouvelle connexion établie");
 
@@ -275,6 +320,18 @@ void handle_client(int client_socket, PGconn *conn) {
 
         buffer[bytes_read] = '\0'; // Assurez-vous que le buffer est une chaîne C valide
         printf("Requête reçue : %s\n", buffer);
+
+        // Vérifier le rate limiting
+        int rate_limit_status = check_rate_limit(&client_rate_limit, client_ip);
+        if (rate_limit_status == -1) {
+            snprintf(buffer, BUFFER_SIZE, "Erreur : Trop de requêtes. Limite de 12 requêtes par minute atteinte.\n");
+            send(client_socket, buffer, strlen(buffer), 0);
+            continue;
+        } else if (rate_limit_status == -2) {
+            snprintf(buffer, BUFFER_SIZE, "Erreur : Trop de requêtes. Limite de 90 requêtes par heure atteinte.\n");
+            send(client_socket, buffer, strlen(buffer), 0);
+            continue;
+        }
 
         // Log de la requête
         char log_message[BUFFER_SIZE + 50];
