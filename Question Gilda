@@ -3,7 +3,6 @@ interet de --help , affiche --help et --verbose
 
 
 MANQUANT:
--verbose (--verbose)
 -enlever automatiquement bloque apres 24h
 -file d'attente connexion
 -modif et suppr d'un message avec durée
