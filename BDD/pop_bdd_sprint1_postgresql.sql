@@ -51,8 +51,8 @@ INSERT INTO _adresse (numRue, supplementAdresse, adresse, codePostal, ville, dep
 INSERT INTO _compte (nomCompte, prenomCompte, mailCompte, numTelCompte, idImagePdp, hashMdpCompte, idAdresse, dateCreationCompte, dateDerniereConnexionCompte, chat_cleApi) VALUES 
 ('Admin', 'Admin', 'admin.smith@example.com', '0123456789', 3, '$2y$10$RkM09lrLhpt74shzr/w0Euihc4LraI0K2fSg3WNbzoDsbg7kFKsC6', 12, '2023-01-15', '2025-01-15', 'rwda-b894e4c2-6eee-4b9c-b01e-456b8b45e28b'),
 ('Smith', 'John', 'john.smith@example.com', '0123456789', 3, '$2y$10$RkM09lrLhpt74shzr/w0Euihc4LraI0K2fSg3WNbzoDsbg7kFKsC6', 12, '2023-01-15', '2025-01-15', 'rwd-b894e4c2-6eee-4b9c-b01e-456b8b45e28b'),
-('Le Verge', 'Lou', 'lou.leverge@example.com', '0123456789', 6, '$2y$10$RkM09lrLhpt74shzr/w0Euihc4LraI0K2fSg3WNbzoDsbg7kFKsC6', 13, '2023-01-15', '2025-01-15', 'rw-89af9b99-ad08-4a93-b8c9-d8398c18c016'),
-('Denis', 'Liam', 'liamdenis35@gmail.com', '0987654321', 7, '$2y$10$RkM09lrLhpt74shzr/w0Euihc4LraI0K2fSg3WNbzoDsbg7kFKsC6', 14, '2023-02-20', '2025-02-20', 'rw-6488bd30-b1fa-4dc6-be1c-b4bc16d261e8'),
+('Le Verge', 'Lou', 'lou.leverge@example.com', '0123456789', 6, '$2y$10$RkM09lrLhpt74shzr/w0Euihc4LraI0K2fSg3WNbzoDsbg7kFKsC6', 13, '2023-01-15', '2025-01-15', 'rwd-89af9b99-ad08-4a93-b8c9-d8398c18c016'),
+('Denis', 'Liam', 'liamdenis35@gmail.com', '0987654321', 7, '$2y$10$RkM09lrLhpt74shzr/w0Euihc4LraI0K2fSg3WNbzoDsbg7kFKsC6', 14, '2023-02-20', '2025-02-20', 'rwd-6488bd30-b1fa-4dc6-be1c-b4bc16d261e8'),
 ('Smath', 'Johnny', 'johnny.smath@example.com', '0123456789', 20, '$2y$10$RkM09lrLhpt74shzr/w0Euihc4LraI0K2fSg3WNbzoDsbg7kFKsC6', 15, '2023-01-15', '2025-01-15', 'rw-c6b4ea24-684f-4d9b-b838-0e74f9f107bd'),
 ('Mallet', 'Piel', 'piel.mallet@example.com', '0123456789', 8, '$2y$10$RkM09lrLhpt74shzr/w0Euihc4LraI0K2fSg3WNbzoDsbg7kFKsC6', 16, '2023-01-15', '2025-01-15', 'rw-6526e1ae-a426-42f7-9f24-96735b2b5085'),
 ('Doe', 'Jane', 'jane.doe@example.com', '0987654321', 9, '$2y$10$R0AEBas/G8eyQM3XWdG.Ie0knRnf1yr4M22WIImwKkxH1IX4grwzu', 17, '2023-02-20', '2025-02-20', 'rw-d07777ac-304d-4ba8-b571-cdb6dd5bc71d'),
@@ -61,17 +61,17 @@ INSERT INTO _compte (nomCompte, prenomCompte, mailCompte, numTelCompte, idImageP
 
 -- 4. Insérer des données dans `_professionnel`
 INSERT INTO _professionnel (idCompte, denominationPro, numSirenPro) VALUES 
-(1, 'SARL - Tech Solutions', '123456789'),
-(2, 'SARL - Design Experts', '987654321'),
-(3, 'SARL - LIAM CO', '983455432');
+(2, 'SARL - Tech Solutions', '123456789'),
+(3, 'SARL - Design Experts', '987654321'),
+(4, 'SARL - LIAM CO', '983455432');
 
 -- 5. Insérer des données dans `_membre`
 INSERT INTO _membre (idCompte, pseudonyme) VALUES 
-(4, 'JohnnyHally'), -- 1
-(5, 'Piel'), -- 2
-(6, 'Janess'), -- 3
-(7, 'GaryBuss'), -- 4
-(8, 'Josetto'); -- 5
+(5, 'JohnnyHally'), -- 1
+(6, 'Piel'), -- 2
+(7, 'Janess'), -- 3
+(8, 'GaryBuss'), -- 4
+(9, 'Josetto'); -- 5
 
 -- 6. Insérer des données dans `_professionnelPublic`
 INSERT INTO _professionnelPublic (idPro) VALUES 

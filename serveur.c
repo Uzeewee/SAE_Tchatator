@@ -145,6 +145,7 @@ void list_tokens(PGconn *conn, int client_socket) {
 
 
 void print_config() {
+    
     printf("Configuration actuelle:\n");
     printf("Port: %d\n", PORT);
     printf("Durée du ban: %d secondes\n", BAN_DURATION);
@@ -620,14 +621,14 @@ void handle_client(int client_socket, PGconn *conn) {
             if (id_reference == -1)
             {
                 snprintf(query_select, sizeof(query_select),
-                    "SELECT idmessage, emetteur, content, direction, timestamp_envoie "
+                    "SELECT idmessage, emetteur, content, direction, derniere_modif "
                     "FROM _chat_message "
                     "WHERE id_destinataire = %d AND est_supprime = false "
                     "ORDER BY timestamp_envoie ASC "
                     "LIMIT %d;", client_id,MAX_MESSAGES);
             } else {
                 snprintf(query_select, sizeof(query_select),
-                    "SELECT idmessage, emetteur, content, direction, timestamp_envoie "
+                    "SELECT idmessage, emetteur, content, direction, derniere_modif "
                     "FROM _chat_message "
                     "WHERE id_destinataire = %d AND est_supprime = false "
                     "AND idmessage < %d "
@@ -1368,8 +1369,6 @@ void handle_client(int client_socket, PGconn *conn) {
 int main(int argc, char *argv[]) {
     // Appeler la fonction pour gérer les options
     gerer_options(argc, argv);
-
-    execute_config_generator();
 
     print_config();
 
