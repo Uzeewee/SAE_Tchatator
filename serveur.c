@@ -730,7 +730,7 @@ void handle_client(int client_socket, PGconn *conn) {
                     // Marquer le message comme supprimé
                     char query_update[256];
                     snprintf(query_update, sizeof(query_update), 
-                            "UPDATE _chat_message SET content = '%s' WHERE idmessage = %d;",message_mod, id_message);
+                            "UPDATE _chat_message SET content = '%s',derniere_modif = NOW() WHERE idmessage = %d;",message_mod, id_message);
 
                     PGresult *res_update = PQexec(conn, query_update);
 

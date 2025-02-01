@@ -993,3 +993,27 @@
 [2025-01-30 12:23:59] [Lou] [127.0.0.1] Requête reçue : MSG
 [2025-01-30 12:23:59] [Lou] [127.0.0.1] Requete de MSG reussi
 [2025-01-30 12:24:46] [Lou] [127.0.0.1] Client déconnecté
+[2025-02-01 12:43:37] [] [localhost] Démarrage du service
+[2025-02-01 12:43:37] [] [localhost] Connexion à la base de données réussie
+[2025-02-01 12:43:43] [] [127.0.0.1] Nouvelle connexion établie
+[2025-02-01 12:43:56] [] [127.0.0.1] Requête reçue : LOGIN:rw-89af9b99-ad08-4a93-b8c9-d8398c18c016
+[2025-02-01 12:43:56] [Lou] [127.0.0.1] Utilisateur connecté : Lou Membre, TOKEN : PKdhtXMmr18n2L9K88eMlGn7CcctT9RwKSB1FebW397VI5uG1yhc3uavuaOb9vy
+[2025-02-01 12:44:26] [Lou] [127.0.0.1] Requête reçue : NEW_MSG:3,test
+[2025-02-01 12:44:26] [Lou] [127.0.0.1] discussions impossible
+[2025-02-01 12:44:38] [Lou] [127.0.0.1] Requête reçue : NEW_MSG:2,new
+[2025-02-01 12:44:38] [Lou] [127.0.0.1] Requete de MSG bien Envoyé
+[2025-02-01 12:45:52] [Lou] [127.0.0.1] Client déconnecté
+[2025-02-01 12:54:02] [] [localhost] Démarrage du service
+[2025-02-01 12:54:02] [] [localhost] Connexion à la base de données réussie
+[2025-02-01 12:54:07] [] [127.0.0.1] Nouvelle connexion établie
+[2025-02-01 12:54:17] [] [127.0.0.1] Requête reçue : LOGIN:rw-89af9b99-ad08-4a93-b8c9-d8398c18c016
+[2025-02-01 12:54:17] [Lou] [127.0.0.1] Utilisateur connecté : Lou Membre, TOKEN : PKdhtXMmr18n2L9K88eMlGn7CcctT9RwKSB1FebW397VI5uG1yhc3uavuaOb9vy
+[2025-02-01 12:54:51] [Lou] [127.0.0.1] Requête reçue : MODIF_MSG:3,changement
+[2025-02-01 12:54:51] [Lou] [127.0.0.1] message modifier
+[2025-02-01 12:54:57] [Lou] [127.0.0.1] Requête reçue : LOGOUT
+[2025-02-01 12:54:57] [Lou] [127.0.0.1] Commande LOGOUT sucess
+[2025-02-01 12:55:20] [] [127.0.0.1] Requête reçue : LOGIN:rwd-b894e4c2-6eee-4b9c-b01e-456b8b45e28b
+[2025-02-01 12:55:20] [John] [127.0.0.1] Utilisateur connecté : John Pro, TOKEN : JcXyHZzsRwpC5iUzahEcaYatja7kaqGHss6YhteYQrpJA76AcBAanBtuBoDzF97
+[2025-02-01 12:55:36] [John] [127.0.0.1] Requête reçue : MSG
+[2025-02-01 12:55:36] [John] [127.0.0.1] Requete de MSG reussi
+[2025-02-01 12:57:59] [John] [127.0.0.1] Client déconnecté
