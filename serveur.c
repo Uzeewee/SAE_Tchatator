@@ -3,7 +3,6 @@
 #include <string.h>
 #include <unistd.h>
 #include <arpa/inet.h>
-#include <libpq-fe.h>
 #include <getopt.h>
 #include <stdbool.h>
 #include <time.h>

@@ -1017,3 +1017,5 @@
 [2025-02-01 12:55:36] [John] [127.0.0.1] Requête reçue : MSG
 [2025-02-01 12:55:36] [John] [127.0.0.1] Requete de MSG reussi
 [2025-02-01 12:57:59] [John] [127.0.0.1] Client déconnecté
+[2025-02-01 14:22:41] [] [localhost] Démarrage du service
+[2025-02-01 14:22:41] [] [localhost] Connexion à la base de données réussie
