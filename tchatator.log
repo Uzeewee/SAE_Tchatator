@@ -1085,3 +1085,139 @@
 [2025-02-01 16:39:31] [] [localhost] Connexion à la base de données réussie
 [2025-02-01 16:39:40] [] [localhost] Démarrage du service
 [2025-02-01 16:39:40] [] [localhost] Connexion à la base de données réussie
+[2025-02-01 18:24:21] [] [localhost] Démarrage du service
+[2025-02-01 18:24:21] [] [localhost] Connexion à la base de données réussie
+[2025-02-01 18:24:45] [] [127.0.0.1] Nouvelle connexion établie
+[2025-02-01 18:25:30] [] [127.0.0.1] Requête reçue : LOGIN:rwd-b894e4c2-6eee-4b9c-b01e-456b8b45e28b
+[2025-02-01 18:25:30] [John] [127.0.0.1] Utilisateur connecté : John Pro, TOKEN : PKdhtXMmr18n2L9K88eMlGn7CcctT9RwKSB1FebW397VI5uG1yhc3uavuaOb9vy
+[2025-02-01 18:25:59] [John] [127.0.0.1] Requête reçue : TOKEN
+[2025-02-01 18:25:59] [John] [127.0.0.1] Token validé avec succès
+[2025-02-01 18:26:25] [John] [127.0.0.1] Requête reçue : LIST_TOKENS
+[2025-02-01 18:26:25] [John] [127.0.0.1] Commande LIST_TOKENS echec
+[2025-02-01 18:27:03] [John] [127.0.0.1] Requête reçue : NEW_MSG:2,lou
+[2025-02-01 18:27:03] [John] [127.0.0.1] discussions impossible
+[2025-02-01 18:27:23] [John] [127.0.0.1] Requête reçue : NEW_MSG:6,Coucou piel
+[2025-02-01 18:27:23] [John] [127.0.0.1] Requete de MSG bien Envoyé
+[2025-02-01 18:28:09] [John] [127.0.0.1] Requête reçue : LOGOUT
+[2025-02-01 18:28:09] [John] [127.0.0.1] Commande LOGOUT sucess
+[2025-02-01 18:28:21] [] [127.0.0.1] Requête reçue : LOGIN:rw-6526e1ae-a426-42f7-9f24-96735b2b5085
+[2025-02-01 18:28:21] [Piel] [127.0.0.1] Utilisateur connecté : Piel Membre, TOKEN : JcXyHZzsRwpC5iUzahEcaYatja7kaqGHss6YhteYQrpJA76AcBAanBtuBoDzF97
+[2025-02-01 18:28:27] [Piel] [127.0.0.1] Requête reçue : MSG
+[2025-02-01 18:28:27] [Piel] [127.0.0.1] Requete de MSG reussi
+[2025-02-01 18:29:02] [Piel] [127.0.0.1] Requête reçue : NEW_MSG:2,coucou john
+[2025-02-01 18:29:02] [Piel] [127.0.0.1] Requete de MSG bien Envoyé
+[2025-02-01 18:29:36] [Piel] [127.0.0.1] Requête reçue : MODIF_MSG:2,hello john
+[2025-02-01 18:29:36] [Piel] [127.0.0.1] message modifier
+[2025-02-01 18:29:55] [Piel] [127.0.0.1] Requête reçue : MODIF_MSG:1,non
+[2025-02-01 18:30:25] [Piel] [127.0.0.1] Requête reçue : LOGOUT
+[2025-02-01 18:30:25] [Piel] [127.0.0.1] Commande LOGOUT sucess
+[2025-02-01 18:30:37] [] [127.0.0.1] Requête reçue : LOGIN:rwd-b894e4c2-6eee-4b9c-b01e-456b8b45e28b
+[2025-02-01 18:30:37] [John] [127.0.0.1] Utilisateur connecté : John Pro, TOKEN : Vp1HviLhW3uvrsqRsRft4GMp61QtuNod3fLomkv8dOus6I7opdFhJiuD7aXpObs
+[2025-02-01 18:30:39] [John] [127.0.0.1] Requête reçue : MSG
+[2025-02-01 18:30:39] [John] [127.0.0.1] Requete de MSG reussi
+[2025-02-01 18:31:02] [John] [127.0.0.1] Requête reçue : LOG:
+[2025-02-01 18:31:02] [John] [127.0.0.1] Requete LOG
+[2025-02-01 18:31:06] [John] [127.0.0.1] Requête reçue : MSG
+[2025-02-01 18:31:06] [John] [127.0.0.1] Requete de MSG reussi
+[2025-02-01 18:31:34] [John] [127.0.0.1] Requête reçue : NEW_MSG:6,rebonjour
+[2025-02-01 18:31:34] [John] [127.0.0.1] Requete de MSG bien Envoyé
+[2025-02-01 18:31:38] [John] [127.0.0.1] Requête reçue : LOGOUT
+[2025-02-01 18:31:38] [John] [127.0.0.1] Commande LOGOUT sucess
+[2025-02-01 18:31:47] [] [127.0.0.1] Requête reçue : LOGIN:rw-6526e1ae-a426-42f7-9f24-96735b2b5085
+[2025-02-01 18:31:47] [Piel] [127.0.0.1] Utilisateur connecté : Piel Membre, TOKEN : Hf3TrccpfQHyKfvXswsA4ySxtTiIvi10nSJCUJPYonkWqDHH005UmNfGuocPw3F
+[2025-02-01 18:31:49] [Piel] [127.0.0.1] Requête reçue : MSG
+[2025-02-01 18:31:49] [Piel] [127.0.0.1] Requete de MSG reussi
+[2025-02-01 18:31:53] [Piel] [127.0.0.1] Requête reçue : LOG:
+[2025-02-01 18:31:53] [Piel] [127.0.0.1] Requete LOG
+[2025-02-01 18:33:11] [Piel] [127.0.0.1] Requête reçue : REMOVE_MSG:2
+[2025-02-01 18:33:28] [Piel] [127.0.0.1] Requête reçue : NEW�_MSG:1,rejp
+[2025-02-01 18:33:28] [Piel] [127.0.0.1] Commande inconnue : NEW�_MSG:1,rejp
+[2025-02-01 18:33:37] [Piel] [127.0.0.1] Requête reçue : NEW_MSG:1,re
+[2025-02-01 18:33:37] [Piel] [127.0.0.1] Requete de MSG bien Envoyé
+[2025-02-01 18:34:09] [Piel] [127.0.0.1] Requête reçue : REMOVE_MSG:4
+[2025-02-01 18:34:09] [Piel] [127.0.0.1] Message bien supprimé
+[2025-02-01 18:34:35] [Piel] [127.0.0.1] Requête reçue : BLOCK_CLIENT:2
+[2025-02-01 18:34:41] [Piel] [127.0.0.1] Requête reçue : LOGOUT
+[2025-02-01 18:34:41] [Piel] [127.0.0.1] Commande LOGOUT sucess
+[2025-02-01 18:34:57] [] [127.0.0.1] Requête reçue : LOGIN:rwd-b894e4c2-6eee-4b9c-b01e-456b8b45e28b
+[2025-02-01 18:34:57] [John] [127.0.0.1] Utilisateur connecté : John Pro, TOKEN : HKc9uKOgYZqIeSgLI4EqghvKCHNf3ELyeLxzlaD7XUG1CKA8E4oKaHjAfWF6qet
+[2025-02-01 18:35:12] [John] [127.0.0.1] Requête reçue : BLOCK_CLIENT:6
+[2025-02-01 18:35:12] [John] [127.0.0.1] CLient Bloque par le pro
+[2025-02-01 18:35:26] [John] [127.0.0.1] Requête reçue : NEW_MSG:6,test
+[2025-02-01 18:35:26] [John] [127.0.0.1] Le client a été bloqué
+[2025-02-01 18:35:32] [John] [127.0.0.1] Requête reçue : LOGOUT
+[2025-02-01 18:35:32] [John] [127.0.0.1] Commande LOGOUT sucess
+[2025-02-01 18:35:48] [] [127.0.0.1] Requête reçue : LOGIN:rw-6526e1ae-a426-42f7-9f24-96735b2b5085
+[2025-02-01 18:35:48] [Piel] [127.0.0.1] Utilisateur connecté : Piel Membre, TOKEN : vQOSZOlVA3pptZQrtID1G9a6cUA6bEpui4c8GlT6d8mwV0Mewd33c4XeMn9NSo5
+[2025-02-01 18:35:56] [Piel] [127.0.0.1] Requête reçue : NEW_MSG:2,test
+[2025-02-01 18:35:56] [Piel] [127.0.0.1] Le client ne peux pas envoyer de message car Banni
+[2025-02-01 18:36:09] [Piel] [127.0.0.1] Requête reçue : LOGOUT
+[2025-02-01 18:36:09] [Piel] [127.0.0.1] Commande LOGOUT sucess
+[2025-02-01 18:36:38] [] [127.0.0.1] Requête reçue : LOGIN:rwd-b894e4c2-6eee-4b9c-b01e-456b8b45e28b
+[2025-02-01 18:36:38] [John] [127.0.0.1] Utilisateur connecté : John Pro, TOKEN : 0i5WPhDJkzTEkJgm4igXk8InKWmmCAhqHddkiGRq6BUeaZr47xPftos38CdA1lQ
+[2025-02-01 18:36:53] [John] [127.0.0.1] Requête reçue : UNBLOCK_CLIENT:6
+[2025-02-01 18:36:53] [John] [127.0.0.1] CLient a ete debloque par le pro
+[2025-02-01 18:37:05] [John] [127.0.0.1] Requête reçue : LOGOUT
+[2025-02-01 18:37:05] [John] [127.0.0.1] Commande LOGOUT sucess
+[2025-02-01 18:37:24] [] [127.0.0.1] Requête reçue : LOGIN:rwda-b894e4c2-6eee-4b9c-b01e-456b8b45e28b
+[2025-02-01 18:37:24] [Admin] [127.0.0.1] Utilisateur connecté : Admin Admin, TOKEN : ymRGumnKgOskNhBFeWlkfxA7t3aTUjxgvfMNpXnvCGFdL5IQRRYVeoQxfOeZYC3
+[2025-02-01 18:37:44] [Admin] [127.0.0.1] Requête reçue : BLOCK_CLIENT:6,2
+[2025-02-01 18:37:44] [Admin] [127.0.0.1] CLient Bloque par l'admin
+[2025-02-01 18:37:59] [Admin] [127.0.0.1] Requête reçue : UNBLOCK_CLIENT:6,2
+[2025-02-01 18:37:59] [Admin] [127.0.0.1] CLient a ete debloque par l'admin
+[2025-02-01 18:38:18] [Admin] [127.0.0.1] Requête reçue : BAN_CLIENT:6
+[2025-02-01 18:38:18] [Admin] [127.0.0.1] Client banni par l'admin
+[2025-02-01 18:38:22] [Admin] [127.0.0.1] Requête reçue : LOGOUT
+[2025-02-01 18:38:22] [Admin] [127.0.0.1] Commande LOGOUT sucess
+[2025-02-01 18:38:30] [] [127.0.0.1] Requête reçue : LOGIN:rw-6526e1ae-a426-42f7-9f24-96735b2b5085
+[2025-02-01 18:38:30] [Piel] [127.0.0.1] Impossible de connecter le client car banni
+[2025-02-01 18:38:50] [Piel] [127.0.0.1] Client déconnecté
+[2025-02-01 18:39:10] [] [127.0.0.1] Nouvelle connexion établie
+[2025-02-01 18:39:10] [] [127.0.0.1] Requête reçue : TEST_REQUEST
+[2025-02-01 18:39:10] [] [127.0.0.1] Commande inconnue : TEST_REQUEST
+[2025-02-01 18:39:11] [] [127.0.0.1] Requête reçue : TEST_REQUEST
+[2025-02-01 18:39:11] [] [127.0.0.1] Commande inconnue : TEST_REQUEST
+[2025-02-01 18:39:12] [] [127.0.0.1] Requête reçue : TEST_REQUEST
+[2025-02-01 18:39:12] [] [127.0.0.1] Commande inconnue : TEST_REQUEST
+[2025-02-01 18:39:13] [] [127.0.0.1] Requête reçue : TEST_REQUEST
+[2025-02-01 18:39:13] [] [127.0.0.1] Commande inconnue : TEST_REQUEST
+[2025-02-01 18:39:14] [] [127.0.0.1] Requête reçue : TEST_REQUEST
+[2025-02-01 18:39:14] [] [127.0.0.1] Commande inconnue : TEST_REQUEST
+[2025-02-01 18:39:15] [] [127.0.0.1] Requête reçue : TEST_REQUEST
+[2025-02-01 18:39:15] [] [127.0.0.1] Commande inconnue : TEST_REQUEST
+[2025-02-01 18:39:16] [] [127.0.0.1] Requête reçue : TEST_REQUEST
+[2025-02-01 18:39:16] [] [127.0.0.1] Commande inconnue : TEST_REQUEST
+[2025-02-01 18:39:17] [] [127.0.0.1] Requête reçue : TEST_REQUEST
+[2025-02-01 18:39:17] [] [127.0.0.1] Commande inconnue : TEST_REQUEST
+[2025-02-01 18:39:18] [] [127.0.0.1] Requête reçue : TEST_REQUEST
+[2025-02-01 18:39:18] [] [127.0.0.1] Commande inconnue : TEST_REQUEST
+[2025-02-01 18:39:19] [] [127.0.0.1] Requête reçue : TEST_REQUEST
+[2025-02-01 18:39:19] [] [127.0.0.1] Commande inconnue : TEST_REQUEST
+[2025-02-01 18:39:20] [] [127.0.0.1] Requête reçue : TEST_REQUEST
+[2025-02-01 18:39:20] [] [127.0.0.1] Commande inconnue : TEST_REQUEST
+[2025-02-01 18:39:21] [] [127.0.0.1] Requête reçue : TEST_REQUEST
+[2025-02-01 18:39:21] [] [127.0.0.1] Commande inconnue : TEST_REQUEST
+[2025-02-01 18:39:24] [] [127.0.0.1] Client déconnecté
+[2025-02-01 18:39:54] [] [localhost] Démarrage du service
+[2025-02-01 18:39:54] [] [localhost] Connexion à la base de données réussie
+[2025-02-01 18:40:06] [] [127.0.0.1] Nouvelle connexion établie
+[2025-02-01 18:40:15] [] [127.0.0.1] Client déconnecté
+[2025-02-01 18:40:47] [] [localhost] Démarrage du service
+[2025-02-01 18:40:47] [] [localhost] Connexion à la base de données réussie
+[2025-02-01 18:41:06] [] [localhost] Démarrage du service
+[2025-02-01 18:41:06] [] [localhost] Connexion à la base de données réussie
+[2025-02-01 18:41:38] [] [localhost] Démarrage du service
+[2025-02-01 18:41:38] [] [localhost] Connexion à la base de données réussie
+[2025-02-01 18:41:41] [] [127.0.0.1] Nouvelle connexion établie
+[2025-02-01 18:42:03] [] [127.0.0.1] Requête reçue : LOGIN:rwd-89af9b99-ad08-4a93-b8c9-d8398c18c016
+[2025-02-01 18:42:03] [Lou] [127.0.0.1] Utilisateur connecté : Lou Pro, TOKEN : PKdhtXMmr18n2L9K88eMlGn7CcctT9RwKSB1FebW397VI5uG1yhc3uavuaOb9vy
+[2025-02-01 18:42:12] [Lou] [127.0.0.1] Requête reçue : LOGOUT
+[2025-02-01 18:42:12] [Lou] [127.0.0.1] Commande LOGOUT sucess
+[2025-02-01 18:42:22] [] [127.0.0.1] Requête reçue : LOGIN:rwda-b894e4c2-6eee-4b9c-b01e-456b8b45e28b
+[2025-02-01 18:42:22] [Admin] [127.0.0.1] Utilisateur connecté : Admin Admin, TOKEN : JcXyHZzsRwpC5iUzahEcaYatja7kaqGHss6YhteYQrpJA76AcBAanBtuBoDzF97
+[2025-02-01 18:42:27] [Admin] [127.0.0.1] Requête reçue : LOGIN:rwda-b894e4c2-6eee-4b9c-b01e-456b8b45e28b
+[2025-02-01 18:42:27] [Admin] [127.0.0.1] Commande inconnue : LOGIN:rwda-b894e4c2-6eee-4b9c-b01e-456b8b45e28b
+[2025-02-01 18:42:31] [Admin] [127.0.0.1] Requête reçue : LIST_TOKENS
+[2025-02-01 18:42:31] [Admin] [127.0.0.1] Commande LIST_TOKENS sucess
+[2025-02-01 18:42:31] [Admin] [127.0.0.1] Requête reçue : LOGIN:rwda-b894e4c2-6eee-4b9c-b01e-456b8b45e28b
+[2025-02-01 18:42:31] [Admin] [127.0.0.1] Commande inconnue : LOGIN:rwda-b894e4c2-6eee-4b9c-b01e-456b8b45e28b
