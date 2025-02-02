@@ -68,6 +68,8 @@ void afficher_aide() {
     printf("  --help                Affiche cette aide et quitte.\n");
     printf("  --verbose             Active les logs détaillés à l'écran.\n");
     printf("\n");
+    printf("  Info:                 Toutes les infos liée a la compilation se trouve dans le README.md\n");
+    printf("\n");
     exit(0);
 }
 

@@ -57,8 +57,11 @@ toute les infos des utilisateurs sont retrouvable dans la bdd : `pop_bdd_sprint1
 
 ### **Documentation**
 
-des informations complementaire sur le client et le serveur sont presente :
+des informations complementaire sur le client et le serveur sont presente dans le dossier
 
+### **Log**
+
+le fichier de log `tchatator.log` ce genere automatiquement au lancement du serveur
 
 
 # **Execution**
